@@ -1,0 +1,117 @@
+yellow fever:
+
+back pain
+dizziness
+fever
+headache
+loss of apetite
+muscle pain
+nausea
+red eyes
+sensitivity
+vomiting
+
+tonsilitis:
+
+yellow skin
+vomiting
+sweat
+stomach pain
+nausea
+loss of apetite
+fever
+chill
+
+obesity:
+
+back pain
+chest pain
+fatigue
+feeling hopeless
+high blood 
+high cholestrol
+irritable mood
+joint pain
+overweight
+pain
+shortness
+snore
+stroke
+sweat
+tired
+
+random list:
+disease
+agitation
+anemia
+asthenia
+back pain
+blackout
+chest pain
+chill
+confusion
+constipation
+cough
+dark stool
+depressed mood
+depression
+diarrohea
+difficulty concentrating
+distended abdomen
+dizziness
+drowsiness
+dry mouth
+dyspnea
+faint
+fatigue
+feeling heavy
+feeling hopeless
+feeling sick
+fever
+frequent urination
+general unsteadiess
+hallucination
+headache
+high blood pressure
+high cholestrol
+red eyes
+redness
+respiratory distress
+seizure
+sensitivity to light
+shivering
+shortness of breath
+sleeplessness
+slowing of urinary stream
+sneeze
+snore
+sore throat
+sound sensetivity
+stiffness
+stomach pain
+stroke
+suicidal
+superimpostiton
+suspiciousness
+swealing
+sweat
+swelling
+tired
+tremor
+unconsciousness
+unresponsiveness
+vision 		
+
+
+
+
+random:
+back pain
+dizziness
+fever
+headache
+loss of apetite
+chest pain
+fatigue
+feeling hopeless
+high blood 

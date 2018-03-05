@@ -1,0 +1,103 @@
+{% extends 'checker/base.html' %}
+
+{% block title %}Resultss{% endblock %}
+
+{% block navbar %}
+	 <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>
+                <a href="../../login/profile">
+                My Profile
+                </a>
+               
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{% url 'index' %}#about">About</a>
+                    <li>
+                        <a class="page-scroll" href="{% url 'index' %}#download">FAQs</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{% url 'index' %}#contact">Contact</a>
+                    </li>
+                    <li>                        
+                        <form action="/logout/" method="POST">
+                            {% csrf_token %}
+                            <input style="padding-top: 15px; color: white" class="btn btn-link" type = "submit" value="LOGOUT"/><br/>
+                        </form>
+                    </li>
+
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+{% endblock %}
+{% block body %}
+    <!-- Intro Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row">
+                    <div class="container-fluid"  style="padding-top: 80px; width: 60%;">
+					
+	
+					{% if diseases %}
+                    <h1 style="text-align: left">Probable Diseases</h1>
+                    {% for key, value in diseases.items %}
+    					<div class="well well-sm" style="color:black;
+                                                /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b8e1fc+0,a9d2f3+10,90bae4+25,90bcea+37,90bff0+50,6ba8e5+51,a2daf5+83,bdf3fd+100;Blue+Gloss+%231 */
+                            background: rgb(184,225,252); /* Old browsers */
+                            background: -moz-linear-gradient(top,  rgba(184,225,252,1) 0%, rgba(169,210,243,1) 10%, rgba(144,186,228,1) 25%, rgba(144,188,234,1) 37%, rgba(144,191,240,1) 50%, rgba(107,168,229,1) 51%, rgba(162,218,245,1) 83%, rgba(189,243,253,1) 100%); /* FF3.6-15 */
+                            background: -webkit-linear-gradient(top,  rgba(184,225,252,1) 0%,rgba(169,210,243,1) 10%,rgba(144,186,228,1) 25%,rgba(144,188,234,1) 37%,rgba(144,191,240,1) 50%,rgba(107,168,229,1) 51%,rgba(162,218,245,1) 83%,rgba(189,243,253,1) 100%); /* Chrome10-25,Safari5.1-6 */
+                            background: linear-gradient(to bottom,  rgba(184,225,252,1) 0%,rgba(169,210,243,1) 10%,rgba(144,186,228,1) 25%,rgba(144,188,234,1) 37%,rgba(144,191,240,1) 50%,rgba(107,168,229,1) 51%,rgba(162,218,245,1) 83%,rgba(189,243,253,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b8e1fc', endColorstr='#bdf3fd',GradientType=0 ); /* IE6-9 */    
+                                                ">				
+        					<h3>{{key}}</h3></div>
+
+        					<div class="well well-lg" style="font-family: 'Times New Roman', Times, serif; font-style: normal; color: black; opacity: 0.55;text-align: justify">
+                                   <h4>Description:</h4> <p>{{value}}<a style="color:purple" href="https://en.wikipedia.org/wiki/{{key}}" target="_blank"> More on {{key}}</a></p>
+        					       
+                            </div>
+    					{% endfor %}
+                          
+					{% else %}
+					<div style="font-family: 'Times New Roman', Times, serif; font-style: normal; color:black" class="well well-sm" opacity: 0.5>Sorry No matching disease found.
+					{% endif %}</div>
+                    <div style="font-family: 'Times New Roman', Times, serif; font-style: normal; background : none !important;" class="well well-sm" >
+                            <p style="background : rgba(211,211,211,0.7) !important;color: red">
+                            Note: Please be aware that this is only a prediction. Please contact referred specialist for further analysis and treatment.</p>
+                            <hr style="color:grey"><br>
+                            <div style="text-align: left">
+                                {% if doctor %}
+                                    {% for i in doctor %}
+                                    <p>Name : {{ i.name }}</p>
+                                    <p>Contact : {{ i.contact }}</p>
+                                    <p>Specialization : {{ i.specialization }}</p>
+                                    <hr>
+                                    {% endfor %}
+                                {% else %}
+                                    <p>No doctor found<p>
+                                {% endif %}
+                            </div>                            
+                            </div>  
+					<p>Thank You<p>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}

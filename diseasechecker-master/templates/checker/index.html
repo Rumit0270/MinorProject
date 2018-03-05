@@ -1,0 +1,141 @@
+{% extends 'checker/base.html' %}
+
+{% block title %}Disease Checker {% endblock %}
+
+{% block navbar %}
+ <!-- Navigation -->
+<nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                Menu <i class="fa fa-bars"></i>
+            </button>
+            <a class="navbar-brand page-scroll" href="#page-top">
+                
+                    <div id="loginContainer" style="padding-left: 100px">
+                        <a href="#" id="loginButton"><span>Login</span><em></em></a>
+                        <div style="clear:both"></div>
+                        <div id="loginBox">                
+                            <form id="loginForm" action="/login/" method="POST">
+                                {% csrf_token %}
+                                <fieldset id="body">
+                                    <fieldset>
+                                        <label for="User">Username</label>
+                                        <input type="text" name="name" id="User" />
+                                    </fieldset>
+                                    <fieldset>
+                                        <label for="password">Password</label>
+                                        <input type="password" name="psw" id="password" />
+                                    </fieldset>
+                                    <input type="submit" id="login" value="Login" />
+                                    <label for="checkbox"><input type="checkbox" id="checkbox" />Remember me</label>
+                                </fieldset>
+                                <span><a href="{% url 'register' %}">Sign up</a></span>
+                                <span>
+                                	{% if error %}
+										<p>Invalid password or username<p>
+									{% endif %}
+                                </span>
+                            </form>
+                        </div>
+                    </div>
+
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+            <ul class="nav navbar-nav">
+                <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                <li class="hidden">
+                    <a href="#page-top"></a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#about">About</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#download">FAQs</a>
+                </li>
+                <li>
+                    <a class="page-scroll" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+{% endblock %}
+{% block body %}
+<!-- Intro Header -->
+<header class="intro">
+    <div class="intro-body">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <p>{% if error1 %}
+                        Doctor not found
+                    </p>{% endif %}
+                    <h1 class="brand-heading">Disease Checker</h1>
+                    <p class="intro-text">An instant way to find out possible disease
+                        </p>
+                    <a href="#about" class="btn btn-circle page-scroll">
+                        <i class="fa fa-angle-double-down animated"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- About Section -->
+<section id="about" class="container content-section text-center">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2>About Disease Checker</h2>
+            <p> Disease Checker is a quick way to do preliminary diagnosis of possible disease based on the symptoms. </p>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section id="download" class="content-section text-center">
+    <div class="download-section">
+        <div class="container">
+            <div class="col-lg-8 col-lg-offset-2" style="text-align: left"> 
+                <h2 style="text-align: center">FAQs</h2>
+                <ul>
+                <li><p> How to find out possible disease?</p>
+                <p>First of all, register for an account. Use the username and password to login. After authentication, checker page will be loaded where you can input your symptoms and click on 'Check for diseases' button.</p></li>
+                <br>
+                <li><p> How to get treatment?</p>
+                <p>When the possible disease is diagnosed, a doctor is also recommended for contact.</p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="container content-section text-center">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2>Contact</h2>
+            <p>Feel free to email us to provide some feedback and suggestions.</p>
+            <p><a href="mailto:feedback@diseasechecker.com">feedback@diseasechecker.com</a>
+            </p>
+            <ul class="list-inline banner-social-buttons">
+                <li>
+                    <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                </li>
+                <li>
+                    <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                </li>
+                <li>
+                    <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}

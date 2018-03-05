@@ -1,0 +1,77 @@
+{% extends 'checker/base.html' %}
+
+{% block title %}Profile {% endblock %}
+
+
+
+{% block navbar %}
+	 <!-- Navigation -->
+    <nav class="navbar navbar-custom navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+                    Menu <i class="fa fa-bars"></i>
+                </button>           
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+                <ul class="nav navbar-nav">
+                    <!-- Hidden li included to remove active class from about link when scrolled up past about section -->
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{% url 'index' %}#about">About</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{% url 'index' %}#download">FAQs</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="{% url 'index' %}#contact">Contact</a>
+                    </li>
+                    <li>
+                        <form action="/logout/" method="POST">
+                            {% csrf_token %}
+                            <input style="padding-top: 15px; color: white" class="btn btn-link" type = "submit" value="LOGOUT"/><br/>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+{% endblock %}
+{% block body %}
+    <!-- Intro Header -->
+    <header class="intro">
+        <div class="intro-body">
+            <div class="container">
+                <div class="row" style="margin-top:100px">
+                    <div class="col-md-3 pull-md-9" style="text-align: left">
+                        <p>Name</p>
+                        <p>Gender</p>
+                        <p>Email</p>
+                    </div>
+                    <div class="col-md-9 push-md-3" style="text-align: left">
+                        <p>{{ user.user_name }}</p>
+                        <p>{{ user.gender}}</p>
+                        <p>{{ user.email}}</p>
+                    </div>                    
+                </div>
+                <div style="width: 600px; text-align: left; border: 1px solid black; border-radius: 5px;">
+                    <h3 style="text-align: center">Diagnosis History</h3>
+                    <div style="padding-left: 30px;">    
+                        <ol>
+                        {% for a in diseases %}
+                        <li>{{ a }}</li>
+                        {% endfor %}
+                        </ol>
+                    <div>
+                    
+                </div>
+            </div>
+        </div>
+    </header>
+{% endblock %}
